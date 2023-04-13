@@ -17,7 +17,11 @@ function handleFormSubmit(event) {
   const month = document.getElementById("month").value;
   const year = document.getElementById("year").value;
   let pTag = document.createElement("p");
-  pTag.innerText = weekdayCalculator(day, month, year);
+  if (day <= 0 || month <= 0) {
+    pTag.innerText = "Please enter a number corresponding to the month/day/year in question: January = 1, February = 2, etc.";
+  } else {
+    pTag.innerText = weekdayCalculator(day, month, year);
+  }
   document.getElementById("response").append(pTag);
 }
 
